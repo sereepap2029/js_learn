@@ -4,11 +4,12 @@ const fs = require("fs");
 const os = require("os");
 const path = require("path");
 const express = require("express");
+const morgan = require("morgan");
 const dataJs = require("./contents/data.js");
-const { identity } = require("lodash");
 const app = express();
 const logger = require("./logger.js");
-const authorize = require("./authorize.js");
+const routeProduct= require("./routes/product.js");
+const routeAuth= require("./routes/auth.js");
 //setup static middleware
 app.use(
   "/css",
@@ -24,30 +25,21 @@ app.use("/css", express.static(path.resolve("css")));
 app.use("/js", express.static(path.resolve("js")));
 app.use("/img", express.static(path.resolve("img")));
 
+//app.use("/", morgan("tiny"));
+app.use("/", express.urlencoded({ extended: false }));
+//app.use("/",[authorize,logger]);
 
-app.use("/",[authorize,logger]);
+
+
 
 app.get("/", function (req, res) {
   res.sendFile(path.resolve("contents", "index.html"));
 });
 
-app.get("/api/products", function (req, res) {
-  var newProducts = dataJs.products.map((product) => {
-    var { id, name, image } = product;
-    return { id, name, image };
-  });
-  res.json(newProducts);
-});
-app.get("/api/product/:id", function (req, res) {
-  var newProducts = dataJs.products.find((product) => {
-    return product.id == req.params.id;
-  });
-  if (!newProducts) {
-    return res.status(404).send("Product Dose not Exist");
-  } else {
-    res.json(newProducts);
-  }
-});
+app.use("/api/product", routeProduct);
+app.use("/login", routeAuth);
+
+
 
 app.get("/api/v1/query", function (req, res) {
   var { search, limit } = req.query;
