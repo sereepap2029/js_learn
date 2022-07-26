@@ -1,0 +1,25 @@
+here result from readFileSync: A file with the given name and  extension   should  be created and  loaded from the given directory and file contents 
+ {
+    "name": "Windows_NT",   
+    "release": "10.0.19043",
+    "totalMem": 34305613824,
+    "freemem": 21247819776,
+    "totalGigabytes": 0,
+    "memory": {   "size": 34305613824}     
+  }here result from readFileSync: A file with the given name and  extension   should  be created and  loaded from the given directory and file contents 
+ {
+    "name": "Windows_NT",   
+    "release": "10.0.19043",
+    "totalMem": 34305613824,
+    "freemem": 21247819776,
+    "totalGigabytes": 0,
+    "memory": {   "size": 34305613824}     
+  }here result from readFileSync: A file with the given name and  extension   should  be created and  loaded from the given directory and file contents 
+ {
+    "name": "Windows_NT",   
+    "release": "10.0.19043",
+    "totalMem": 34305613824,
+    "freemem": 21247819776,
+    "totalGigabytes": 0,
+    "memory": {   "size": 34305613824}     
+  }
