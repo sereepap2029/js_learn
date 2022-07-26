@@ -13,6 +13,7 @@ app.use('/js', express.static(path.resolve('node_modules','jquery','dist')))
 app.use('/public', express.static(path.resolve('public')))
 app.use('/css', express.static(path.resolve('css')))
 app.use('/js', express.static(path.resolve('js')))
+app.use('/img', express.static(path.resolve('img')))
 
 app.get("/", function (req, res) {
     res.sendFile(path.resolve("contents", "index.html"));
