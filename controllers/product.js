@@ -1,4 +1,5 @@
 const dataJs = require("../contents/data.js");
+const path = require("path");
 var exp = {};
 exp.getProducts = (req, res) => {
   var newProducts = dataJs.products.map((product) => {
@@ -17,6 +18,9 @@ exp.getProduct = (req, res) => {
   } else {
     res.json(newProducts);
   }
+};
+exp.productDisplay = (req, res) => {
+  res.render(path.resolve("views", "display"));
 };
 
 module.exports = exp;
